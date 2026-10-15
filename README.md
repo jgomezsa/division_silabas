@@ -44,3 +44,4 @@ GPL-3.0 because of its sources. See [NOTICE](NOTICE) and
 - `build_db.py`: downloads the sources and builds the database
 - `find_words.py`: search CLI
 - `web.py`: local web frontend (same search, served with `http.server`)
+- `syllable_stats.ipynb`: syllable statistics and pattern-by-vowel tables (needs pandas and matplotlib)
