@@ -30,6 +30,13 @@ Words are syllabified by rules (`syllabify.py`) and stored in SQLite:
 `lemma_freq` is the frequency of all the forms of a lemma (*estar*: *está*, *estoy*...),
 used to rank base forms.
 
+## License
+
+The code is licensed under the [Apache License 2.0](LICENSE). The data is not
+included in this repository; the database built from it is licensed under
+GPL-3.0 because of its sources. See [NOTICE](NOTICE) and
+[DATA_LICENSE.md](DATA_LICENSE.md).
+
 ## Files
 
 - `hunspell_expand.py`: expands Hunspell `.dic` + `.aff` into every word form

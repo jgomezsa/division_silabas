@@ -1,0 +1,24 @@
+division_silabas
+Copyright 2026 jgomezsa
+
+The source code in this repository is licensed under the Apache License,
+Version 2.0 (see LICENSE).
+
+This repository does not include any third-party data. build_db.py downloads
+the following data at build time; each source keeps its own license, and the
+database it generates (data/silabas.db) is a derived work of them. See
+DATA_LICENSE.md for details.
+
+  * Spanish Hunspell dictionary (es_ES), RLA-ES project
+    https://github.com/LibreOffice/dictionaries/tree/master/es
+    Licensed under GPL-3.0-or-later, LGPL-3.0-or-later or MPL-1.1-or-later,
+    at the user's choice.
+
+  * FrequencyWords, OpenSubtitles 2018 Spanish frequency list, by Hermit Dave
+    https://github.com/hermitdave/FrequencyWords
+    Content licensed under CC BY-SA 4.0. Based on the OpenSubtitles2018 corpus
+    from OPUS (http://opus.nlpl.eu/OpenSubtitles2018.php), www.opensubtitles.org.
+
+  * Lemarios, by Ismael Olea and contributors
+    https://github.com/olea/lemarios
+    Public domain.

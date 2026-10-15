@@ -41,6 +41,22 @@ LEMARIOS_URL = "https://raw.githubusercontent.com/olea/lemarios/master/"
 LEMARIO_FILE = RAW / "lemarios" / "lemario-general-del-espanol.txt"
 CONJUGATIONS_FILE = RAW / "lemarios" / "verbos-espanol-conjugaciones.txt"
 INFINITIVES_FILE = RAW / "lemarios" / "verbos-espanol.txt"
+# The database is a derived work of the data sources (see DATA_LICENSE.md)
+DB_METADATA = {
+    "license": "GPL-3.0",
+    "attribution": (
+        "Derived from: Spanish Hunspell dictionary es_ES by the RLA-ES project "
+        "(GPL-3.0-or-later / LGPL-3.0-or-later / MPL-1.1-or-later), "
+        "https://github.com/LibreOffice/dictionaries/tree/master/es; "
+        "FrequencyWords Spanish 2018 list by Hermit Dave (CC BY-SA 4.0), based on "
+        "the OpenSubtitles2018 corpus (OPUS, www.opensubtitles.org), "
+        "https://github.com/hermitdave/FrequencyWords; "
+        "Lemarios by Ismael Olea and contributors (public domain), "
+        "https://github.com/olea/lemarios. "
+        "Modified: words were syllabified, filtered and combined."
+    ),
+    "details": "https://github.com/jgomezsa/division_silabas/blob/main/DATA_LICENSE.md",
+}
 MIN_FREQ_EXTRA = 5  # minimum occurrences for a word that is only in the frequency list
 MIN_STEM = 3  # shorter stems are too ambiguous for derivations (alice, erica, stone...)
 
@@ -322,8 +338,10 @@ def build():
             syllable TEXT NOT NULL,        -- as written
             PRIMARY KEY (syllable_plain, pos, word_id)
         ) WITHOUT ROWID;
+        CREATE TABLE metadata (key TEXT PRIMARY KEY, value TEXT NOT NULL);
         """
     )
+    con.executemany("INSERT INTO metadata VALUES (?,?)", DB_METADATA.items())
     word_rows, syl_rows = [], []
     all_words = (
         [(w, w in lemmas, "dic") for w in dict_words]
